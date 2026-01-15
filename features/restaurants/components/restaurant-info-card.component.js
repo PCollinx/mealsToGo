@@ -1,13 +1,20 @@
+import open from "@/assets/images/open";
+import star from "@/assets/images/star";
+import { Spacer } from "@/components/spacer/spacer.component";
+import { Text } from "@/components/typography/text.component";
 import React from "react";
-import { StyleSheet } from "react-native";
-import { Card } from "react-native-paper";
+import { SvgXml } from "react-native-svg";
 import { styled } from "styled-components/native";
 
-const Title = styled.Text`
-  font-size: 18px;
-  padding: 16px;
-  font-weight: bold;
-`;
+import {
+  Address,
+  Info,
+  Rating,
+  RestaurantCard,
+  RestaurantCardCover,
+  Section,
+  SectionEnd,
+} from "./restaurant-info-card.styles";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -19,23 +26,45 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     address = "100 in a random street",
     isOpenNow = true,
     rating = 4,
-    isClosedTemporarily = false,
+    isClosedTemporarily = true,
   } = restaurant;
+
+  const ratingArray = Array.from(new Array(Math.floor(rating)));
+
+  const Icon = styled.Image`
+    width: 15px;
+    height: 15px;
+  `;
+
   return (
-    <>
-      <Card elevation={5} style={styles.card}>
-        <Card.Cover
-          key={name}
-          style={styles.cover}
-          source={{ uri: photos[0] }}
-        />
-        <Title>{name}</Title>
-      </Card>
-    </>
+    <RestaurantCard elevation={5}>
+      <RestaurantCardCover
+        key={name}
+        source={{ uri: photos[0] }}
+        resizeMode="cover"
+      />
+      <Info>
+        <Text variant="label">{name}</Text>
+        <Section>
+          <Rating>
+            {ratingArray.map((_, i) => (
+              <SvgXml key={i} xml={star} width={20} height={20} />
+            ))}
+          </Rating>
+          <SectionEnd>
+            {isClosedTemporarily && (
+              <Text variant="error">CLOSED TEMPORARILY</Text>
+            )}
+            <Spacer position="left" size="large">
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <Icon source={{ uri: icon }} />
+            </Spacer>
+          </SectionEnd>
+        </Section>
+        <Address>{address}</Address>
+      </Info>
+    </RestaurantCard>
   );
 };
-
-const styles = StyleSheet.create({
-  card: { backgroundColor: "white" },
-  cover: { padding: 20, backgroundColor: "white" },
-});
