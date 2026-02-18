@@ -1,6 +1,9 @@
 import open from "@/assets/images/open";
 import star from "@/assets/images/star";
+
 import { Spacer } from "@/components/spacer/spacer.component";
+import { Favourite } from "@/components/favourites/favourites.component";
+
 import { Text } from "@/components/typography/text.component";
 import React from "react";
 import { SvgXml } from "react-native-svg";
@@ -27,6 +30,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
+    placeId,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -38,6 +42,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return (
     <RestaurantCard elevation={5}>
+      <Favourite restaurant={restaurant} />
       <RestaurantCardCover
         key={name}
         source={{ uri: photos[0] }}
@@ -48,7 +53,12 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         <Section>
           <Rating>
             {ratingArray.map((_, i) => (
-              <SvgXml key={i} xml={star} width={20} height={20} />
+              <SvgXml
+                key={`star-${placeId}-${i}`}
+                xml={star}
+                width={20}
+                height={20}
+              />
             ))}
           </Rating>
           <SectionEnd>
