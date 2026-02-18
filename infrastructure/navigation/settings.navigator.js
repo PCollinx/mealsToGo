@@ -1,5 +1,6 @@
 import { FavouritesScreen } from "@/features/settings/screens/favourites.screen";
 import { SettingsScreen } from "@/features/settings/screens/settings.screen";
+import { CameraScreen } from "@/features/settings/screens/camera.screen";
 import {
   CardStyleInterpolators,
   createStackNavigator,
@@ -19,8 +20,13 @@ export const SettingsNavigator = ({ route, navigation }) => {
         ...TransitionPresets.ModalPresentationIOS,
       }}
     >
-      <SettingsStack.Screen name="SettingsMain" component={SettingsScreen} />
+      <SettingsStack.Screen
+        options={{ header: () => null }}
+        name="SettingsMain"
+        component={SettingsScreen}
+      />
       <SettingsStack.Screen name="Favourites" component={FavouritesScreen} />
+      <SettingsStack.Screen name="Camera" component={CameraScreen} />
     </SettingsStack.Navigator>
   );
 };
