@@ -1,5 +1,6 @@
 import { LocationContext } from "@/services/location/location.context";
 import { RestaurantsContext } from "@/services/restaurants/restaurants.context";
+import { SafeArea } from "@/utils/safe-area.component";
 import React, { useContext, useEffect, useState } from "react";
 import MapView, { Callout, Marker } from "react-native-maps";
 import { styled } from "styled-components/native";
@@ -11,14 +12,10 @@ const Map = styled(MapView)`
   width: 100%;
 `;
 
-export const MapScreen = ({ navigation }) => {
-  const { location, isLoading } = useContext(LocationContext);
+export const MapScreening = ({ navigation }) => {
+  const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantsContext);
   const [latDelta, setLatDelta] = useState(0);
-
-  if (!location) {
-    return null;
-  }
 
   const { lat, lng, viewport } = location;
 
@@ -64,4 +61,23 @@ export const MapScreen = ({ navigation }) => {
       </Map>
     </>
   );
+};
+
+export const MapScreen = ({ navigation }) => {
+  const { location } = useContext(LocationContext);
+
+  if (!location) {
+    return (
+      <SafeArea>
+        <Map
+          region={{
+            latitude: 0,
+            longitude: 0,
+          }}
+        />
+      </SafeArea>
+    );
+  }
+
+  return <MapScreening navigation={navigation} />;
 };
