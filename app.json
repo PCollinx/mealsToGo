@@ -27,7 +27,11 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.pcollinx.mealsToGo"
+      "package": "com.pcollinx.mealsToGo",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.CAMERA"
+      ]
     },
     "web": {
       "output": "static",
@@ -67,6 +71,12 @@
         "projectId": "748171ee-48bc-4174-a8bb-1fc57676334d"
       }
     },
-    "owner": "pcollinx"
+    "owner": "pcollinx",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/748171ee-48bc-4174-a8bb-1fc57676334d"
+    }
   }
 }

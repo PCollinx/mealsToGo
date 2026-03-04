@@ -1,0 +1,30 @@
+[debug] [2026-03-02T20:07:24.454Z] ----------------------------------------------------------------------
+[debug] [2026-03-02T20:07:24.456Z] Command:       /Users/collins/.nvm/versions/node/v24.4.1/bin/node /Users/collins/.nvm/versions/node/v24.4.1/bin/firebase functions:secrets:set GOOGLE_MAPS_API_KEY
+[debug] [2026-03-02T20:07:24.456Z] CLI Version:   15.6.0
+[debug] [2026-03-02T20:07:24.456Z] Platform:      darwin
+[debug] [2026-03-02T20:07:24.456Z] Node Version:  v24.4.1
+[debug] [2026-03-02T20:07:24.456Z] Time:          Mon Mar 02 2026 21:07:24 GMT+0100 (West Africa Standard Time)
+[debug] [2026-03-02T20:07:24.456Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-03-02T20:07:24.558Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-02T20:07:24.558Z] > authorizing via signed-in user (paulcollins484@gmail.com)
+[debug] [2026-03-02T20:07:24.558Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-02T20:07:24.558Z] > authorizing via signed-in user (paulcollins484@gmail.com)
+[debug] [2026-03-02T20:07:24.558Z] [iam] checking project mealstogo-a0a42 for permissions ["firebase.projects.get","secretmanager.secrets.create","secretmanager.secrets.get","secretmanager.secrets.update","secretmanager.versions.add"]
+[debug] [2026-03-02T20:07:24.559Z] Checked if tokens are valid: true, expires at: 1772485333575
+[debug] [2026-03-02T20:07:24.559Z] Checked if tokens are valid: true, expires at: 1772485333575
+[debug] [2026-03-02T20:07:24.559Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mealstogo-a0a42:testIamPermissions [none]
+[debug] [2026-03-02T20:07:24.559Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mealstogo-a0a42:testIamPermissions  x-goog-user-project=mealstogo-a0a42
+[debug] [2026-03-02T20:07:24.559Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mealstogo-a0a42:testIamPermissions {"permissions":["firebase.projects.get","secretmanager.secrets.create","secretmanager.secrets.get","secretmanager.secrets.update","secretmanager.versions.add"]}
+[debug] [2026-03-02T20:07:25.929Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mealstogo-a0a42:testIamPermissions 200
+[debug] [2026-03-02T20:07:25.929Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mealstogo-a0a42:testIamPermissions {"permissions":["firebase.projects.get","secretmanager.secrets.create","secretmanager.secrets.get","secretmanager.secrets.update","secretmanager.versions.add"]}
+[debug] [2026-03-02T20:07:25.929Z] Checked if tokens are valid: true, expires at: 1772485333575
+[debug] [2026-03-02T20:07:25.929Z] Checked if tokens are valid: true, expires at: 1772485333575
+[debug] [2026-03-02T20:07:25.929Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/mealstogo-a0a42 [none]
+[debug] [2026-03-02T20:07:26.385Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/mealstogo-a0a42 200
+[debug] [2026-03-02T20:07:26.386Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/mealstogo-a0a42 {"projectNumber":"1079693038304","projectId":"mealstogo-a0a42","lifecycleState":"ACTIVE","name":"MealsToGo","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-02-10T09:00:32.745886Z"}
+[debug] [2026-03-02T20:07:26.387Z] Checked if tokens are valid: true, expires at: 1772485333575
+[debug] [2026-03-02T20:07:26.387Z] Checked if tokens are valid: true, expires at: 1772485333575
+[debug] [2026-03-02T20:07:26.387Z] >>> [apiv2][query] GET https://secretmanager.googleapis.com/v1/projects/mealstogo-a0a42/secrets/GOOGLE_MAPS_API_KEY [none]
+[debug] [2026-03-02T20:07:27.200Z] <<< [apiv2][status] GET https://secretmanager.googleapis.com/v1/projects/mealstogo-a0a42/secrets/GOOGLE_MAPS_API_KEY 200
+[debug] [2026-03-02T20:07:27.200Z] <<< [apiv2][body] GET https://secretmanager.googleapis.com/v1/projects/mealstogo-a0a42/secrets/GOOGLE_MAPS_API_KEY {"name":"projects/1079693038304/secrets/GOOGLE_MAPS_API_KEY","replication":{"automatic":{}},"createTime":"2026-03-02T19:15:05.013484Z","labels":{"firebase-managed":"functions"},"etag":"\"164c0f678bb35c\""}
